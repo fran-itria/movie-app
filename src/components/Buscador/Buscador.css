@@ -11,5 +11,32 @@
     margin-left: 20px;
 }
 .label {
-    padding-right: 10px;
+    margin-right: 10px;
+    text-decoration: underline 2px ;
+}
+.init{
+    margin-left: 20px;
+}
+.button{
+    margin-left: 10px;
+    border: dashed 1px ;
+    background-color: white;
+}
+.button:hover{
+    border: solid 2px blue;
+}
+
+.linkTo{
+    color: black;
+    text-decoration: none;
+}
+.linkTo:visited{
+    color: red;
+    text-decoration: none;
+}
+.movieItem{
+    margin-top: 10px;
+}
+.movieList{
+    list-style-type: disclosure-closed;
 }

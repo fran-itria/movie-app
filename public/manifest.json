@@ -1,6 +1,6 @@
 {
   "short_name": "Movies App",
-  "name": "Movies App with React and Redux",
+  "name": "Movies App Sample",
   "icons": [
     {
       "src": "favicon.ico",

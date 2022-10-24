@@ -23,7 +23,7 @@ export class Buscador extends Component {
   render() {
     const { title } = this.state;
     return (
-      <div>
+      <div className="init">
         <h2>Buscador</h2>
         <form className="form-container" onSubmit={(e) => this.handleSubmit(e)}>
           <div>
@@ -39,24 +39,40 @@ export class Buscador extends Component {
               onChange={(e) => this.handleChange(e)}
             />
           </div>
-          <button type="submit">BUSCAR</button>
+          <button type="submit" className="button">
+            BUSCAR
+          </button>
         </form>
-        <ul>
-          {/* Aqui tienes que escribir tu codigo para mostrar la lista de peliculas */}
-          {this.props.movies && this.props.movies.map((movie) => (
-            <li key={movie.imdbID}>
-              <Link to={`/movie/${movie.imdbID}`}>{movie.Title}</Link>
-              <button
-                onClick={() => this.props.addMovie(movie)}
-                disabled={this.props.fav.find(
-                  ({ imdbID }) => imdbID === movie.imdbID
-                )}
-              >
-                FAV
-              </button>
-            </li>
-          ))}
-        </ul>
+        {this.props.movies.length > 0 ? (
+          <>
+            <p>
+              Haciendo click en el titulo de la pelicula te llevara a un breve
+              detalle de esta, los que aparecen pintados en rojo son las
+              peliculas que ya has visitado, y podras agregarlas a favoritas
+              clickeando donde dice FAV
+            </p>
+            <ul className="movieList">
+              {this.props.movies.map((movie) => (
+                <li key={movie.imdbID} className="movieItem">
+                  <Link to={`/movie/${movie.imdbID}`} className="linkTo">
+                    {movie.Title}
+                  </Link>
+                  <button
+                    onClick={() => this.props.addMovie(movie)}
+                    disabled={this.props.fav.find(
+                      ({ imdbID }) => imdbID === movie.imdbID
+                    )}
+                    className="button"
+                  >
+                    FAV
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </>
+        ) : (
+          ""
+        )}
       </div>
     );
   }
